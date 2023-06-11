@@ -10,12 +10,10 @@ ENV RUSTFLAGS="-C link-arg=-fuse-ld=/mold"
 
 FROM rust-base as builder
 COPY . .
-ARG SERVICE
 ENV CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=clang
 ENV RUSTFLAGS="-C link-arg=-fuse-ld=/mold"
-RUN cargo build --release --bin ${SERVICE}
+RUN cargo build --release --bin ps2-discord-room-bot
 
 FROM debian:bullseye-slim as runtime
-ARG SERVICE
-COPY --from=builder /app/target/release/${SERVICE} /app
+COPY --from=builder /app/target/release/ps2-discord-room-bot /app
 ENTRYPOINT ["/app"]
