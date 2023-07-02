@@ -11,7 +11,7 @@ docker run -it \
   -e DISCORD_TOKEN=$MY_BOT_TOKEN \
   -e WATCH_CHANNEL_MY_SERVER=$SERVER_ID:$CHANNEL_ID \
   -e WATCH_CHANNEL_MY_OTHER_SERVER=$SERVER_ID_2:$CHANNEL_ID_2 \
-    ghcr.io/genudine/ps2-discord-room-bot/bot:latest
+    ghcr.io/planetside-community/discord-room-bot/bot:latest
 ```
 
 You need a Discord Application (create one at https://discord.dev), and pass it's bot token in as `DISCORD_TOKEN`.
